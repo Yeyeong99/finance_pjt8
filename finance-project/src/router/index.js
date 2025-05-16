@@ -11,6 +11,7 @@ import { routes } from 'vue-router/auto-routes'
 import HomeView from "@/pages/HomeView.vue";
 import SearchView from "@/pages/SearchView.vue";
 import LaterView from "@/pages/LaterView.vue";
+import ChannelView from "@/pages/ChannelView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,6 +31,11 @@ const router = createRouter({
       path: '/later',
       name: 'later',
       component: LaterView
+    },
+    {
+      path: '/channel',
+      name: 'channel',
+      component: ChannelView
     }
   ]
 })
