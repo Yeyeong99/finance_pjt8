@@ -26,8 +26,21 @@ export const useAppStore = defineStore("app", () => {
     }
   };
 
+  // 저장된 비디오 찾는 getters
+  const savedVideo = computed(() => {
+    return videos.value.filter((video) => video.isSaved === true)
+  })
+
+  // 비디오 삭제하기 >> 재배열
+  const deleteVideo = function (selectedId) {
+      videos.value = videos.value.filter((video) => video.id.videoId !== selectedId)
+  }
+
   return {
     videos,
     searchKeyword,
+    savedVideo,
+    deleteVideo,
+
   };
 });
