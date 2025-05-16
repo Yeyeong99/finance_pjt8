@@ -1,19 +1,25 @@
 <template>
   <v-app>
-    <nav>
-      <RouterLink :to="{name: 'home'}">Home</RouterLink>
+    <v-app-bar>
+      <!-- 상단 네비게이션 바 -->
+      <v-toolbar-title>MYTUBE </v-toolbar-title>
+      <v-btn text :to="{name: 'home'}">Home</v-btn>
       <span> | </span>
-      <RouterLink :to="{name: 'search'}">Search</RouterLink>
+      <v-btn text :to="{name: 'search'}">Search</v-btn>
       <span> | </span>
-      <RouterLink :to="{name: 'later'}">Later</RouterLink>
-    </nav>
+      <v-btn text :to="{name: 'later'}">Later</v-btn>
+    </v-app-bar>
     
-    <router-view />
+    <!-- 메인 콘텐츠 영역 -->
+    <v-main>
+      <router-view />
+    </v-main>
+    
   </v-app>
 </template>
 
 <script setup>
-  import { RouterView, RouterLink } from "vue-router";
+
 </script>
 
 <style scoped>
