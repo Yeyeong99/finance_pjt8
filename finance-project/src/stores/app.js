@@ -50,6 +50,11 @@ export const useAppStore = defineStore("app", () => {
     video.isSaved = true
   }
 
+  // 채널 추가
+  const addChannel = function (channel) {
+    channels.value.push(channel)
+  }
+
   // 채널 삭제하기 >> 제거
   const deleteChannel = function (selectedId) {
     const index = channels.value.findIndex((channel) => channel.id === selectedId)
@@ -78,6 +83,7 @@ export const useAppStore = defineStore("app", () => {
     saveVideo,
     deleteVideo,
     likeVideo,
+    addChannel,
     deleteChannel,
 
   };
