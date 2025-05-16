@@ -4,6 +4,9 @@
     <Video class="video-wrapper" :video="detailStore.videoDetail" />
 
     <h2>{{ detailStore.videoDetail.snippet.title }}</h2>
+    <VideoButton
+      :video="detailStore.videoDetail"
+    />
     <Channel
       :channel="{
         id: detailStore.videoDetail.snippet.channelId,
@@ -17,6 +20,7 @@
 
 <script setup>
 import Channel from "@/components/Channel.vue";
+import VideoButton from "@/components/VideoButton.vue"
 import { useDetailStore } from "@/stores/detail";
 import { onMounted } from "vue";
 import { useRoute } from "vue-router";
