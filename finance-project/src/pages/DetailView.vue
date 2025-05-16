@@ -1,6 +1,6 @@
 <!-- src/views/Detail.vue -->
 <template>
-  <div v-if="detailStore.videoDetail">
+  <div class="ma-6" v-if="detailStore.videoDetail">
     <Video class="video-wrapper" :video="detailStore.videoDetail" />
 
     <h2>{{ detailStore.videoDetail.snippet.title }}</h2>
