@@ -1,8 +1,9 @@
+<!-- src/components/Video.vue -->
 <template>
   <iframe
     width="560"
     height="315"
-    :src="`https://www.youtube.com/embed/${video.id.videoId}`"
+    :src="`https://www.youtube.com/embed/${video.id.videoId || video.id}`"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
@@ -11,8 +12,8 @@
 
 <script setup>
 defineProps({
-    video: Object
-})
+  video: Object,
+});
 </script>
 
 <style scoped>
