@@ -25,12 +25,6 @@ export const useAppStore = defineStore("app", () => {
     try {
       const res = await axios.get(API_URL, { params });
       videos.value = res.data.items;
-
-      for (let i=0; i<videos.value.length; i++) {
-        videos.value[i].isSaved = false
-        videos.value[i].isLiked = false
-      }
-      
       console.log(videos.value);
     } catch (error) {
       console.error("검색 실패:", error);
@@ -44,10 +38,17 @@ export const useAppStore = defineStore("app", () => {
 
 
   // 비디오 저장
-  const saveVideo = function (selectedId) {
+  const saveVideo = function (newVideo) {
     // isSaved 처리하기
-    const video = videos.value.find((video) => video.id.videoId === selectedId)
-    video.isSaved = true
+    const video = videos.value.find((video) => video.id.videoId === newVideo.id)
+    if (video === undefined) {
+      videos.value.push(newVideo)
+      newVideo.isSaved = true
+    }
+    else {
+      video.isSaved = true
+    }
+    
   }
 
   // 채널 추가
