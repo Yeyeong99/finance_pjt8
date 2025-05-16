@@ -19,6 +19,10 @@ export const useDetailStore = defineStore("detail", () => {
     try {
       const res = await axios.get(API_URL, { params });
       videoDetail.value = res.data.items[0];
+      // 저장이 되었는지 확인해봐야 함.
+      videoDetail.value.isSaved = false
+      // 좋아요했는지 확인해봐야 함.
+      videoDetail.value.isLiked = false
     } catch (e) {
       console.error("비디오 상세 정보 로딩 실패:", e);
     }
