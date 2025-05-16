@@ -1,7 +1,10 @@
 <!--HomeView.vue-->
 <template>
-  <div>
-    <Video
+  <div class="text-center mt-6">
+    <h2 c>금융 관련 동영상 보기</h2>
+  </div>
+  <div class="d-flex flex-wrap justify-space-between ma-6">
+    <VideoCard
       v-for="video in appStore.videos"
       v-if="appStore.videos.length > 0"
       :key="video.id.videoId"
