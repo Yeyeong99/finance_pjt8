@@ -11,6 +11,7 @@ import { routes } from "vue-router/auto-routes";
 import HomeView from "@/pages/HomeView.vue";
 import SearchView from "@/pages/SearchView.vue";
 import LaterView from "@/pages/LaterView.vue";
+import ChannelView from "@/pages/ChannelView.vue";
 import DetailView from "@/pages/DetailView.vue";
 
 const router = createRouter({
@@ -28,9 +29,15 @@ const router = createRouter({
       component: SearchView,
     },
     {
-      path: "/later",
-      name: "later",
-      component: LaterView,
+
+      path: '/later',
+      name: 'later',
+      component: LaterView
+    },
+    {
+      path: '/channel',
+      name: 'channel',
+      component: ChannelView
     },
     {
       path: "/detail/:video",

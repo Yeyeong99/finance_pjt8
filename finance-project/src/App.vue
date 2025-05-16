@@ -8,6 +8,8 @@
       <v-btn text :to="{name: 'search'}">Search</v-btn>
       <span> | </span>
       <v-btn text :to="{name: 'later'}">Later</v-btn>
+      <span> | </span>
+      <v-btn text :to="{name: 'channel'}">Channel</v-btn>
     </v-app-bar>
     
     <!-- 메인 콘텐츠 영역 -->

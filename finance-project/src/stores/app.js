@@ -2,12 +2,16 @@
 import axios from "axios";
 import { ref } from "vue";
 import { defineStore } from "pinia";
+import { vi } from "vuetify/locale";
 
 export const useAppStore = defineStore("app", () => {
   const API_KEY = import.meta.env.VITE_API_KEY;
   const API_URL = "https://www.googleapis.com/youtube/v3/search";
 
   const videos = ref([]); // 컴포넌트에서 사용할 반응형 데이터
+  const channels = ref([
+    {id: 1, title: '채널1', isSubscribed: false},
+  ]);    // 저장된 채널 리스트
 
   const searchKeyword = async (keyword) => {
     const params = {
@@ -32,6 +36,14 @@ export const useAppStore = defineStore("app", () => {
     return videos.value.filter((video) => video.isSaved === true)
   })
 
+  // 채널 삭제하기 >> 제거
+  const deleteChannel = function (selectedId) {
+    const index = channels.value.findIndex((channel) => channel.id === selectedId)
+    if (index !== -1) {
+      channels.value.splice(index, 1)
+    }
+  }
+
   // 비디오 삭제하기 >> 재배열
   const deleteVideo = function (selectedId) {
       videos.value = videos.value.filter((video) => video.id.videoId !== selectedId)
@@ -39,9 +51,11 @@ export const useAppStore = defineStore("app", () => {
 
   return {
     videos,
+    channels,
     searchKeyword,
     savedVideo,
     deleteVideo,
+    deleteChannel,
 
   };
 });
