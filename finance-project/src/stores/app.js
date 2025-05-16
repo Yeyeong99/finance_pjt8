@@ -19,6 +19,7 @@ export const useAppStore = defineStore("app", () => {
       part: "snippet",
       type: "video",
       q: keyword,
+      maxResults: 15,
     };
 
     try {
